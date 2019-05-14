@@ -1,0 +1,139 @@
+{{ header }}
+<div class="page-wrapper">
+  <section class="section content section-kitchen">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="breadcrumbs">
+            {% for breadcrumb in breadcrumbs %}
+              {% if loop.last == false %}
+                <a href="{{ breadcrumb.href }}">{{ breadcrumb.text }} </a><span class="breadcrumbs__delimiter">></span>
+              {% else %}
+                <span>{{ breadcrumb.text }}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-12">
+          <h1>{{ kitchen.title }}</h1>
+          <div class="second-line ml-0"></div>
+          <p class="kitchen__description">
+            {{ kitchen.description }}
+          </p>
+        </div>
+        <div class="col-lg-7">
+          <div class="kitchen__slider">
+            <div class="slider-for">
+              {% for image in kitchen.images %}
+                <div class="kitchen__slider-for__img">
+                  <a href="{{ image }}" data-fancybox="images"><img src="{{ image }}" alt=""></a>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="slider-nav-wrapper">
+              <div class="slider-nav">
+                {% for image in kitchen.images %}
+                  <div class="kitchen__slider-nav__img">
+                    <img src="{{ image }}" alt="">
+                  </div>
+                {% endfor %}
+              </div>
+              <div class="kitchen__slider-navs">
+                <div class="kitchen__slider-prev"><i class="fa fa-chevron-left"></i></div>
+                <div class="kitchen__slider-next"><i class="fa fa-chevron-right"></i></div>
+              </div>
+            </div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="kitchen__data">
+            <h5 class="kitchen__colors-title">Цвета</h5>
+            <div class="kitchen__colors">
+              {% for color in kitchen.colors %}
+                <a href="{{ color }}" data-fancybox="images" title="Для всех_{{ loop.index }}"><img src="{{ color }}" alt="" class="kitchen__color"></a>
+              {% endfor %}
+            </div>
+            <div class="kitchen__info">
+              {% if kitchen.facade %}
+              <div class="kitchen__info-row">
+                <p class="kitchen__info-left">Фасад</p>
+                <p class="kitchen__info-right">{{ kitchen.facade }}</p>
+              </div>
+              {% endif %}
+              {% if kitchen.skeleton %}
+              <div class="kitchen__info-row">
+                <p class="kitchen__info-left">Каркас</p>
+                <p class="kitchen__info-right">{{ kitchen.skeleton }}</p>
+              </div>
+              {% endif %}
+              {% if kitchen.fittings %}
+              <div class="kitchen__info-row">
+                <p class="kitchen__info-left">Фурнитура</p>
+                <p class="kitchen__info-right">{{ kitchen.fittings }}</p>
+              </div>
+              {% endif %}
+              {% if kitchen.style %}
+              <div class="kitchen__info-row">
+                <p class="kitchen__info-left">Стиль</p>
+                <p class="kitchen__info-right">{{ kitchen.style }}</p>
+              </div>
+              {% endif %}
+              {% if kitchen.term %}
+                <div class="kitchen__info-row">
+                  <p class="kitchen__info-left">Срок изготовления кухни</p>
+                  <p class="kitchen__info-right">{{ kitchen.term }}</p>
+                </div>
+              {% endif %}
+              {% if kitchen.guarantee %}
+                <div class="kitchen__info-row">
+                  <p class="kitchen__info-left">Гарантия</p>
+                  <p class="kitchen__info-right">{{ kitchen.guarantee }}</p>
+                </div>
+              {% endif %}
+              {% if kitchen.price %}
+                <div class="kitchen__info-row price">
+                  <p class="kitchen__info-left">Цена</p>
+                  <p class="kitchen__info-right">От {{ kitchen.price }} руб.<span>за погонный метр</span></p>
+                </div>
+              {% endif %}
+              <a href="#" class="mnbtn o-white">Расчитать стоимость</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% if dining %}
+  <section class="section section-dining">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="section5__block-title">
+            <h2>К этой кухне можно подобрать обеденную группу</h2>
+            <div class="second-line"></div>
+            <article>
+              <p>Изысканность и утончённость классических и современных кухонь Yavid создадут неповторимый уют в вашем доме.<br>
+                А элементы кухни из массива дуба наполняют мебель теплом души и приносят в дом частичку природы.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        {% for item in dining %}
+          <div class="col-lg-4">
+            <div class="section5__item">
+              <div class="section5__top">
+                <img src="{{ item.image }}" alt="">
+              </div>
+              <div class="section5__bottom">
+                <span>{{ item.title }}</span><a href="{{ item.href }}" class="mnbtn o-black">Подробнее</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+</div>
+{{ footer }}

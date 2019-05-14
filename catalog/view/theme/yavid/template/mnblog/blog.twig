@@ -1,0 +1,161 @@
+{{ header }}
+<section class="content blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumbs">
+                    {% for breadcrumb in breadcrumbs %}
+                        {% if loop.last == false %}
+                            <a href="{{ breadcrumb.href }}">{{ breadcrumb.text }} </a><span class="breadcrumbs__delimiter">></span>
+                        {% else %}
+                            <span>{{ breadcrumb.text }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <h1>Блог</h1>
+                <div class="second-line"></div>
+                <p class="blog__subtitle">Изысканность и утончённость классических и современных кухонь Yavid создадут неповторимый уют в вашем доме. А элементы кухни из массива дуба наполняют мебель теплом души и приносят в дом частичку природы.</p>
+            </div>
+            <div class="col-12 blog__articles">
+                {% if articles %}
+                    {% for article in articles %}
+                        <div class="row ml-0 mr-0 blog__article">
+                            <div class="col-md-6 pl-0">
+                                <div class="blog__article__image">
+                                    <img src="{{ article.image }}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-6 blog__article__right">
+                                <time class="blog__article__right-date">{{ article.post_date }}</time>
+                                {% if article.url  %}
+                                    <a href="/{{ article.url }}" class="blog__article-title">
+                                        <h4>{{ article.title }}</h4>
+                                    </a>
+                                {% else %}
+                                    <a href="/blog?article_id={{ article.article_id }}" class="blog__article-title">
+                                        <h4>{{ article.title }}</h4>
+                                    </a>
+                                {% endif %}
+                                <article>
+                                    <p>{{ article.short_description }}</p>
+                                </article>
+                                <div class="button-wrapper">
+                                    {% if article.url  %}
+                                        <a href="/{{ article.url }}" class="mnbtn o-black">
+                                            Подробнее
+                                        </a>
+                                    {% else %}
+                                        <a href="/blog?article_id={{ article.article_id }}" class="mnbtn o-black">
+                                            Подробнее
+                                        </a>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                {#<div class="row ml-0 mr-0 blog__article">#}
+                    {#<div class="col-md-6 pl-0">#}
+                        {#<div class="blog__article__image">#}
+                            {#<img src="/catalog/view/theme/yavid/img/69-wide.jpg" alt="">#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="col-md-6 blog__article__right">#}
+                        {#<time class="blog__article__right-date">25 Apr 2019</time>#}
+                        {#<a href="#" class="blog__article-title">#}
+                            {#<h4>Дизайн кухни 2019: новые тенденции</h4>#}
+                        {#</a>#}
+                        {#<article>#}
+                            {#<p>Для тех, кто планирует модный дизайн кухни 2019, подборка новинок от напрямую производителя. Все секреты изнутри. Если классические модели кажутся слишком сдержанными, на смену им приходят современные кухни. В них проще всего воплотить идеи, коснувшиеся дизайна 2019 года.</p>#}
+                        {#</article>#}
+                        {#<div class="button-wrapper">#}
+                            {#<a href="#" class="mnbtn o-black">#}
+                                {#Подробнее#}
+                            {#</a>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+                {#<div class="row ml-0 mr-0 blog__article">#}
+                    {#<div class="col-md-6 pl-0">#}
+                        {#<div class="blog__article__image">#}
+                            {#<img src="/catalog/view/theme/yavid/img/69-wide.jpg" alt="">#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="col-md-6 blog__article__right">#}
+                        {#<time class="blog__article__right-date">25 Apr 2019</time>#}
+                        {#<a href="#" class="blog__article-title">#}
+                            {#<h4>Дизайн кухни 2019: новые тенденции</h4>#}
+                        {#</a>#}
+                        {#<article>#}
+                            {#<p>Для тех, кто планирует модный дизайн кухни 2019, подборка новинок от напрямую производителя. Все секреты изнутри. Если классические модели кажутся слишком сдержанными, на смену им приходят современные кухни. В них проще всего воплотить идеи, коснувшиеся дизайна 2019 года.</p>#}
+                        {#</article>#}
+                        {#<div class="button-wrapper">#}
+                            {#<a href="#" class="mnbtn o-black">#}
+                                {#Подробнее#}
+                            {#</a>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+                {#<div class="row ml-0 mr-0 blog__article">#}
+                    {#<div class="col-md-6 pl-0">#}
+                        {#<div class="blog__article__image">#}
+                            {#<img src="/catalog/view/theme/yavid/img/69-wide.jpg" alt="">#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="col-md-6 blog__article__right">#}
+                        {#<time class="blog__article__right-date">25 Apr 2019</time>#}
+                        {#<a href="#" class="blog__article-title">#}
+                            {#<h4>Дизайн кухни 2019: новые тенденции</h4>#}
+                        {#</a>#}
+                        {#<article>#}
+                            {#<p>Для тех, кто планирует модный дизайн кухни 2019, подборка новинок от напрямую производителя. Все секреты изнутри. Если классические модели кажутся слишком сдержанными, на смену им приходят современные кухни. В них проще всего воплотить идеи, коснувшиеся дизайна 2019 года.</p>#}
+                        {#</article>#}
+                        {#<div class="button-wrapper">#}
+                            {#<a href="#" class="mnbtn o-black">#}
+                                {#Подробнее#}
+                            {#</a>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+                {#<div class="row ml-0 mr-0 blog__article">#}
+                    {#<div class="col-md-6 pl-0">#}
+                        {#<div class="blog__article__image">#}
+                            {#<img src="/catalog/view/theme/yavid/img/70-wide.jpg" alt="">#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="col-md-6 blog__article__right">#}
+                        {#<time class="blog__article__right-date">25 Apr 2019</time>#}
+                        {#<a href="#" class="blog__article-title">#}
+                            {#<h4>Фурнитура с мировым именем: механизмы blum</h4>#}
+                        {#</a>#}
+                        {#<article>#}
+                            {#<p>Зачастую потребитель уделяет повышенное внимание внешнему виду фасадов, а также количеству модулей и их внутреннему наполнению, что не совсем верно. Даже самые лучшие и дорогие кухонные фасады из массива не прослужат долго без качественной фурнитуры. Одними из самых лучших заслуженно считаются механизмы blum, для кухни которые выбирают во многих странах мира.</p>#}
+                        {#</article>#}
+                        {#<div class="button-wrapper">#}
+                            {#<a href="#" class="mnbtn o-black">#}
+                                {#Подробнее#}
+                            {#</a>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            </div>
+            {#<div class="col-12 blog__pagination">#}
+                {#<ul class="pagination">#}
+                    {#<li class="pagination__item"><a href="#"><i class="fa fa-angle-left"></i></a></li>#}
+                    {#<li class="pagination__item"><a href="#">1</a></li>#}
+                    {#<li class="pagination__item active"><a href="#">2</a></li>#}
+                    {#<li class="pagination__item"><a href="#">3</a></li>#}
+                    {#<li class="pagination__item"><a href="#">4</a></li>#}
+                    {#<li class="pagination__item"><a href="#">5</a></li>#}
+                    {#<li class="pagination__item"><a href="#"><i class="fa fa-angle-right"></i></a></li>#}
+                {#</ul>#}
+            {#</div>#}
+            <div class="col-12">
+                {{ pagination }}
+            </div>
+        </div>
+    </div>
+</section>
+{{ footer }}

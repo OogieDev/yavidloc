@@ -1,0 +1,32 @@
+{{ header }}
+<section class="content article">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumbs">
+                    {% for breadcrumb in breadcrumbs %}
+                        {% if loop.last == false %}
+                            <a href="{{ breadcrumb.href }}">{{ breadcrumb.text }} </a><span class="breadcrumbs__delimiter">></span>
+                        {% else %}
+                            <span>{{ breadcrumb.text }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="article__wrapper">
+                    <time>{{ stock.post_date }}</time>
+                    <h1>{{ stock.title }}</h1>
+                    <div class="article__content">
+                        {{ stock.content }}
+                    </div>
+                    <a class="social-icon facebook" title="Поделиться вконтакте" href="https://www.facebook.com/sharer.php?u={{ stock.url }}&caption={{ stock.title }}&picture={{ stock.img }}" target="_blank">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a class="social-icon vk" title="Поделиться в facebook" href="https://vk.com/share.php?url={{ stock.url }}&img={{ stock.img }}&title={{ stock.title }}" target="_blank">
+                        <i class="fa fa-vk"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ footer }}

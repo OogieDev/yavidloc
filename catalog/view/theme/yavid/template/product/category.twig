@@ -1,0 +1,69 @@
+{{ header }}
+<section class="content category">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="breadcrumbs">
+            {% for breadcrumb in breadcrumbs %}
+                {% if loop.last == false %}
+                  <a href="{{ breadcrumb.href }}">{{ breadcrumb.text }} </a><span class="breadcrumbs__delimiter">></span>
+                {% else %}
+                  <span>{{ breadcrumb.text }}</span>
+                {% endif %}
+            {% endfor %}
+        </div>
+      </div>
+      <div class="col-12">
+          <h1 class="text-center">{{ category_name }}</h1>
+          <div class="second-line"></div>
+          <p class="blog__subtitle">Изысканность и утончённость классических и современных кухонь Yavid создадут неповторимый уют в вашем доме. А элементы кухни из массива дуба наполняют мебель теплом души и приносят в дом частичку природы.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% if kitchens %}
+    <section class="section section-category">
+        <div class="container">
+            <div class="row">
+                {% for kitchen in kitchens %}
+                    <div class="col-lg-4">
+                        <div class="section5__item">
+                            <div class="section5__top">
+                                <img src="{{ kitchen.image }}" alt="">
+                            </div>
+                            <div class="section5__bottom">
+                                <span>{{ kitchen.title }}</span><a href="{{ kitchen.href }}" class="mnbtn o-black">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% else %}
+    <section class="section section-category__list">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <ul>
+                        {% for category in categories %}
+                            <li><a href="{{ category.href }}">{{ category.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
+<section class="section section-category__description">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {% if description %}
+                    {{ description }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{{ footer }}

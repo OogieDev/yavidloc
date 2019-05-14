@@ -1,0 +1,182 @@
+{{ header }}
+<section class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumbs">
+                    {% for breadcrumb in breadcrumbs %}
+                        {% if loop.last == false %}
+                            <a href="{{ breadcrumb.href }}">{{ breadcrumb.text }} </a><span class="breadcrumbs__delimiter">></span>
+                        {% else %}
+                            <span>{{ breadcrumb.text }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="calc">
+                    <form>
+                        <div class="calc-top">
+                            <h4>Online-конфигуратор</h4>
+                            <div class="second-line ml-0"></div>
+                        </div>
+                        <div class="calc-content">
+                            <div class="row">
+                                <div class="col-lg-4 calc__left pr-4">
+                                    <p>Контактная информация</p>
+                                    <input type="text" name="name" placeholder="Имя">
+                                    <input type="text" name="phone" placeholder="Контактный телефон">
+                                    <input type="text" name="email" placeholder="Электронная почта">
+                                    <div class="calc__row-input">
+                                        <label for="">Стиль</label><select name="" id="">
+                                            <option value="none">Не важно</option>
+                                            <option value="classic">Классический</option>
+                                            <option value="modern">Современный</option>
+                                        </select>
+                                    </div>
+                                    <div class="calc__row-input">
+                                        <label for="">Модель</label>
+                                        <select name="model">
+                                            <option name="0">Не важно</option>
+                                            <option name="1">Кухня "БЕАТРИС"</option>
+                                            <option name="2">Кухня "Флоренция"</option>
+                                            <option name="3">Кухня "Верона"</option>
+                                            <option name="4">Кухня "Амелия"</option>
+                                            <option name="5">Кухня "Доминика"</option>
+                                            <option name="6">Кухня "Николь"</option>
+                                        </select>
+                                    </div>
+                                    <p>Каждая модель может быть выполнена в других цветах и комбинациях</p>
+                                </div>
+                                <div class="col-lg-4 calc__right pl-4 pr-4">
+                                    <div class="calc__row-input">
+                                        <label for="">Форма</label>
+                                        <select name="" id="">
+                                            <option value="linear">Прямая</option>
+                                            <option value="angle1">Угловая (Г-образная)</option>
+                                            <option value="angle2">Угловая (7-образная)</option>
+                                            <option value="rect">П-образная</option>
+                                        </select>
+                                    </div>
+                                    <div class="calc__size">
+                                        <p>Размеры (см)</p>
+                                        <input type="number" class="top-input" placeholder="280">
+                                        <div class="calc__size__row-inputs">
+                                            <div>
+                                                <input type="number" placeholder="130">
+                                            </div>
+                                            <div>
+                                                <img src="/catalog/view/theme/yavid/img/maket.png" alt="">
+                                            </div>
+                                            <div>
+                                                <input type="number" placeholder="130">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="calc__schema-title">Прикрепите схему</p>
+                                    <div class="uploader">
+                                        <input type="file" aria-multiselectable="false" id="uploader">
+                                        <span class="filename">Файл не выбран</span>
+                                        <label for="uploader">Загрузите файл</label>
+                                    </div>
+                                    <p class="calc__schema-tooltip">При желании можете прикрепить схему комнаты или кухни</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calc-params">
+                            <span class="calc-params__target"><i class="fa fa-plus"></i>Расширенные параметры</span>
+                        </div>
+                        <div class="calc-params__content">
+                            <div class="row">
+                                <div class="col-lg-4 pr-4">
+                                    <h5>Материалы</h5>
+                                    <div class="calc__row-input">
+                                        <label for="">Фасад</label>
+                                        <select name="" id="">
+                                            <option value="0">Не важно</option>
+                                            <option value="1">Массив дуба</option>
+                                            <option value="2">МДФ + Шпон дуба</option>
+                                        </select>
+                                    </div>
+                                    <div class="calc__row-input">
+                                        <label for="">Столешница</label>
+                                        <select name="" id="">
+                                            <option value="0">Не важно</option>
+                                            <option value="1">Пластик</option>
+                                            <option value="2">Исскусственный камень</option>
+                                        </select>
+                                    </div>
+                                    <h5>Наполнения и дополнения</h5>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col-lg-4 calc-params__left pr-4">
+                                    <p>Стеновая панель</p>
+                                    <input type="radio" name="one"><label for="">Да</label>
+                                    <input type="radio" name="one"><label for="">Нет</label>
+
+                                    <p>Фасады со стеклом</p>
+                                    <input type="radio"><label for="">Да</label>
+                                    <input type="radio"><label for="">Нет</label>
+
+                                    <p>Подсветка</p>
+                                    <input type="radio"><label for="">Да</label>
+                                    <input type="radio"><label for="">Нет</label>
+
+                                    <p>Варочная панель</p>
+                                    <input type="radio"><label for="">Да</label>
+                                    <input type="radio"><label for="">Нет</label>
+                                </div>
+                                <div class="col-lg-4 calc-params__right pl-4 pr-4">
+                                    <div class="calc-params__right-block">
+                                        <div>
+                                            <input type="checkbox"><label class="checkbox__label" for="">Духовой шкаф</label>
+                                        </div>
+                                        <input type="radio" disabled><label for="">Газ</label>
+                                        <input type="radio" disabled><label for="">Электро</label>
+                                    </div>
+                                    <div class="calc-params__right-block">
+                                        <div>
+                                            <input type="checkbox"><label class="checkbox__label" for="">Вытяжка</label>
+                                        </div>
+                                        <input type="radio" disabled><label for="">Встроенная</label>
+                                        <input type="radio" disabled><label for="">Купольная</label>
+                                    </div>
+                                    <div class="calc-params__right-block">
+                                        <div>
+                                            <input type="checkbox"><label class="checkbox__label" for="">Посудомоечная машина</label>
+                                        </div>
+                                        <input type="radio" disabled><label for="">Встроенная</label>
+                                        <input type="radio" disabled><label for="">Отдельная</label>
+                                    </div>
+                                    <div class="calc-params__right-block">
+                                        <div>
+                                            <input type="checkbox"><label class="checkbox__label" for="">Стиральная машина</label>
+                                        </div>
+                                        <input type="radio" disabled><label for="">Встроенная</label>
+                                        <input type="radio" disabled><label for="">Отдельная</label>
+                                    </div>
+                                    <div class="calc-params__right-block">
+                                        <div>
+                                            <input type="checkbox"><label class="checkbox__label" for="">Мойка</label>
+                                        </div>
+                                        <input type="radio" disabled><label for="">Круглая</label>
+                                        <input type="radio" disabled><label for="">Прямоугольная</label>
+                                    </div>
+                                    <div class="calc-params__right-block">
+                                        <div>
+                                            <input type="checkbox"><label class="checkbox__label" for="">Холодильник</label>
+                                        </div>
+                                        <input type="radio" disabled><label for="">Встроенный</label>
+                                        <input type="radio" disabled><label for="">Отдельный</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calc-bottom">
+                            <button type="submit" class="mnbtn o-black">Отправить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ footer }}

@@ -1,0 +1,43 @@
+{{ header }}
+<section class="content blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumbs">
+                    {% for breadcrumb in breadcrumbs %}
+                        {% if loop.last == false %}
+                            <a href="{{ breadcrumb.href }}">{{ breadcrumb.text }} </a><span class="breadcrumbs__delimiter">></span>
+                        {% else %}
+                            <span>{{ breadcrumb.text }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <h1>Услуги</h1>
+                <div class="second-line"></div>
+                <p class="blog__subtitle">Изысканность и утончённость классических и современных кухонь Yavid создадут неповторимый уют в вашем доме. А элементы кухни из массива дуба наполняют мебель теплом души и приносят в дом частичку природы.</p>
+            </div>
+            <div class="col-12 services">
+                <div class="row justify-content-center">
+                    {% if services %}
+                        {% for service in services %}
+                            <div class="col-lg-6">
+                                <a href="{{ service.url }}" class="service__wrapper">
+                                    <div class="service" style="background: url('{{ service.image }}') no-repeat center; background-size: cover">
+                                        <h4 class="service__title">{{ service.title }}</h4>
+                                        <p class="service__description">{{ service.short_description }}</p>
+                                        <button class="mnbtn o-white">Подробнее</button>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                {{ pagination }}
+            </div>
+        </div>
+    </div>
+</section>
+{{ footer }}
